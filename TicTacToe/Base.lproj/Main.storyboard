@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A3028" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -100,14 +100,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNs-NG-EZu">
+                                <rect key="frame" x="110" y="53" width="37" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="CD6-C0-1jT" appends="YES" id="Cig-We-3WV"/>
+                            <outletCollection property="gestureRecognizers" destination="QS1-fP-a4y" appends="YES" id="T4v-ds-ASc"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="dragLabel" destination="HNs-NG-EZu" id="lN6-rw-poR"/>
                         <outlet property="myLabelEight" destination="eTG-f3-QpM" id="nQP-dj-Pl6"/>
                         <outlet property="myLabelFive" destination="EHg-6i-d4A" id="1yX-rf-BGK"/>
                         <outlet property="myLabelFour" destination="G77-aY-d4z" id="1l0-bw-LEX"/>
@@ -127,6 +136,11 @@
                         <action selector="onLabelTapped:" destination="vXZ-lx-hvc" id="Isk-WC-Z9Z"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="QS1-fP-a4y">
+                    <connections>
+                        <action selector="onDraggingLabel:" destination="vXZ-lx-hvc" id="fAZ-za-Obq"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
         </scene>
     </scenes>

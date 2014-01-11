@@ -12,6 +12,7 @@
 @interface ViewController () <UIAlertViewDelegate>
 {
     
+    __weak IBOutlet UILabel *dragLabel;
     __weak IBOutlet UILabel *playerWhoWon;
         int numberOfTimesplayed;
     BOOL firstPlayerHasPlayed;
@@ -92,6 +93,14 @@
 
 }
 
+- (IBAction)onDraggingLabel:(UIPanGestureRecognizer*)panGestureRecognizer {
+    
+    CGPoint point = [panGestureRecognizer translationInView:self.view];
+    dragLabel.transform = CGAffineTransformMakeTranslation(point.x, point.y);
+    
+    
+    
+}
 
 
 
@@ -113,15 +122,15 @@
         [self playGame:labelUsed];
     }
     
-    playerWhoWon.text = [self whoWon];
+    playerWhoWon.text = [self whoOne];
     
     NSString *alertWinner = @"";
     
-    if ([playerWhoWon.text isEqualToString:@"x"]) {
+    if ([playerWhoWon.text isEqualToString:@"X"]) {
         
         alertWinner = @"Player One Wins!";
     }
-    else if ([playerWhoWon.text isEqualToString:@"o"]) {
+    else if ([playerWhoWon.text isEqualToString:@"O"]) {
         
         alertWinner = @"Player Two Wins!";
     }
@@ -162,18 +171,18 @@
     
     
     if (numberOfTimesplayed % 2 != 0){
-        label.text = @"x";
+        label.text = @"X";
         label.textColor = [UIColor blueColor];
     } else {
-        label.text = @"o";
+        label.text = @"O";
         label.textColor = [UIColor redColor];
         
     }
     
     
-    if ([label.text isEqualToString:@"x"]){
+    if ([label.text isEqualToString:@"X"]){
         whichPlayerLabel.text = @"Player two";
-    } else if ([label.text isEqualToString:@"o"]) {
+    } else if ([label.text isEqualToString:@"O"]) {
         whichPlayerLabel.text = @"Player one";
        }
     }
@@ -186,36 +195,36 @@
 }
 
 
--(NSString *) whoWon {
+-(NSString *) whoOne {
     
     BOOL playerOneWins = NO;
     BOOL playerTwoWins = NO;
-    if (([myLabelOne.text isEqualToString:@"x"] && [myLabelTwo.text isEqualToString:@"x"] && [myLabelThree.text isEqualToString:@"x"])
-    ||  ([myLabelFour.text isEqualToString:@"x"] && [myLabelFive.text isEqualToString:@"x"] && [myLabelSix.text isEqualToString:@"x"])
-        ||  ([myLabelSeven.text isEqualToString:@"x"] && [myLabelEight.text isEqualToString:@"x"] && [myLabelNine.text isEqualToString:@"x"])
-        ||  ([myLabelOne.text isEqualToString:@"x"] && [myLabelFour.text isEqualToString:@"x"] && [myLabelSeven.text isEqualToString:@"x"])
-        ||  ([myLabelTwo.text isEqualToString:@"x"] && [myLabelFive.text isEqualToString:@"x"] && [myLabelEight.text isEqualToString:@"x"])
-        ||  ([myLabelOne.text isEqualToString:@"x"] && [myLabelFive.text isEqualToString:@"x"] && [myLabelNine.text isEqualToString:@"x"])
-        ||  ([myLabelThree.text isEqualToString:@"x"] && [myLabelSix.text isEqualToString:@"x"] && [myLabelNine.text isEqualToString:@"x"])
-        ||  ([myLabelThree.text isEqualToString:@"x"] && [myLabelFive.text isEqualToString:@"x"] && [myLabelSeven.text isEqualToString:@"x"])){
+    if (([myLabelOne.text isEqualToString:@"X"] && [myLabelTwo.text isEqualToString:@"X"] && [myLabelThree.text isEqualToString:@"X"])
+    ||  ([myLabelFour.text isEqualToString:@"X"] && [myLabelFive.text isEqualToString:@"X"] && [myLabelSix.text isEqualToString:@"X"])
+        ||  ([myLabelSeven.text isEqualToString:@"X"] && [myLabelEight.text isEqualToString:@"X"] && [myLabelNine.text isEqualToString:@"X"])
+        ||  ([myLabelOne.text isEqualToString:@"X"] && [myLabelFour.text isEqualToString:@"X"] && [myLabelSeven.text isEqualToString:@"X"])
+        ||  ([myLabelTwo.text isEqualToString:@"X"] && [myLabelFive.text isEqualToString:@"X"] && [myLabelEight.text isEqualToString:@"X"])
+        ||  ([myLabelOne.text isEqualToString:@"X"] && [myLabelFive.text isEqualToString:@"X"] && [myLabelNine.text isEqualToString:@"X"])
+        ||  ([myLabelThree.text isEqualToString:@"X"] && [myLabelSix.text isEqualToString:@"X"] && [myLabelNine.text isEqualToString:@"X"])
+        ||  ([myLabelThree.text isEqualToString:@"X"] && [myLabelFive.text isEqualToString:@"X"] && [myLabelSeven.text isEqualToString:@"X"])){
     
         playerOneWins = YES;
-    } else if (([myLabelOne.text isEqualToString:@"o"] && [myLabelTwo.text isEqualToString:@"o"] && [myLabelThree.text isEqualToString:@"o"])
-               ||  ([myLabelFour.text isEqualToString:@"o"] && [myLabelFive.text isEqualToString:@"o"] && [myLabelSix.text isEqualToString:@"o"])
-               ||  ([myLabelSeven.text isEqualToString:@"o"] && [myLabelEight.text isEqualToString:@"o"] && [myLabelNine.text isEqualToString:@"o"])
-               ||  ([myLabelOne.text isEqualToString:@"o"] && [myLabelFour.text isEqualToString:@"o"] && [myLabelSeven.text isEqualToString:@"o"])
-               ||  ([myLabelTwo.text isEqualToString:@"o"] && [myLabelFive.text isEqualToString:@"o"] && [myLabelEight.text isEqualToString:@"o"])
-               ||  ([myLabelOne.text isEqualToString:@"o"] && [myLabelFive.text isEqualToString:@"o"] && [myLabelNine.text isEqualToString:@"o"])
-               ||  ([myLabelThree.text isEqualToString:@"o"] && [myLabelSix.text isEqualToString:@"o"] && [myLabelNine.text isEqualToString:@"o"])
-               ||  ([myLabelThree.text isEqualToString:@"o"] && [myLabelFive.text isEqualToString:@"o"] && [myLabelSeven.text isEqualToString:@"o"]) ){
+    } else if (([myLabelOne.text isEqualToString:@"O"] && [myLabelTwo.text isEqualToString:@"O"] && [myLabelThree.text isEqualToString:@"O"])
+               ||  ([myLabelFour.text isEqualToString:@")"] && [myLabelFive.text isEqualToString:@"O"] && [myLabelSix.text isEqualToString:@"O"])
+               ||  ([myLabelSeven.text isEqualToString:@"O"] && [myLabelEight.text isEqualToString:@"O"] && [myLabelNine.text isEqualToString:@"O"])
+               ||  ([myLabelOne.text isEqualToString:@"O"] && [myLabelFour.text isEqualToString:@"O"] && [myLabelSeven.text isEqualToString:@"O"])
+               ||  ([myLabelTwo.text isEqualToString:@"O"] && [myLabelFive.text isEqualToString:@"O"] && [myLabelEight.text isEqualToString:@"O"])
+               ||  ([myLabelOne.text isEqualToString:@"O"] && [myLabelFive.text isEqualToString:@"O"] && [myLabelNine.text isEqualToString:@"O"])
+               ||  ([myLabelThree.text isEqualToString:@"O"] && [myLabelSix.text isEqualToString:@"O"] && [myLabelNine.text isEqualToString:@"O"])
+               ||  ([myLabelThree.text isEqualToString:@"O"] && [myLabelFive.text isEqualToString:@"O"] && [myLabelSeven.text isEqualToString:@"O"]) ){
      
                playerTwoWins = YES;
                }
     
     if(playerOneWins){
-        return @"x";
+        return @"X";
     } else if (playerTwoWins){
-        return @"o";
+        return @"O";
     } else {
         return @"Nobody wins";
     }

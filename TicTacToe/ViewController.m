@@ -138,7 +138,7 @@
         timeLeft = 15;
         
 //        [self countDown];
-        [self performSelector:@selector(countDown) withObject:nil afterDelay:10.0];
+        [self performSelector:@selector(countDown) withObject:nil afterDelay:15.0];
         
         
 
@@ -155,7 +155,7 @@
         dragLabel.text = @"X";
         timeLeft = 15;
  //       [self countDown];
-      [self performSelector:@selector(countDown) withObject:nil afterDelay:10.0];
+      [self performSelector:@selector(countDown) withObject:nil afterDelay:15.0];
         
         
         
@@ -261,9 +261,12 @@
     else if ([playerWhoWon.text isEqualToString:@"O"]) {
         
         alertWinner = @"Player Two Wins!";
+    } else if (numberOfTimesplayed == 9 &&  [playerWhoWon.text isEqualToString:@"Nobody has won yet"] ) {
+        
+        alertWinner = @"Nobody wins the game";
     }
     
-    if ([alertWinner isEqualToString:@"Player One Wins!"] || [alertWinner isEqualToString:@"Player Two Wins!"] ){
+    if ([alertWinner isEqualToString:@"Player One Wins!"] || [alertWinner isEqualToString:@"Player Two Wins!"] || [alertWinner isEqualToString:@"Nobody wins the game"] ){
         
         
         UIAlertView *winAlert = [[UIAlertView alloc] initWithTitle:nil message:alertWinner delegate:nil cancelButtonTitle:@"Start a new game" otherButtonTitles:nil, nil];

@@ -21,6 +21,7 @@
 		7CAC46101880877C005361D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAC45F21880877C005361D8 /* UIKit.framework */; };
 		7CAC46181880877C005361D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CAC46161880877C005361D8 /* InfoPlist.strings */; };
 		7CAC461A1880877C005361D8 /* TicTacToeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC46191880877C005361D8 /* TicTacToeTests.m */; };
+		D19CAA6318833621003603FC /* GameHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D19CAA6218833621003603FC /* GameHelpViewController.m */; };
 		D1ABC1A81881913600C6D60B /* CheckMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1ABC1A71881913600C6D60B /* CheckMate.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,8 @@
 		7CAC46151880877C005361D8 /* TicTacToeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TicTacToeTests-Info.plist"; sourceTree = "<group>"; };
 		7CAC46171880877C005361D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7CAC46191880877C005361D8 /* TicTacToeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicTacToeTests.m; sourceTree = "<group>"; };
+		D19CAA6118833621003603FC /* GameHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHelpViewController.h; sourceTree = "<group>"; };
+		D19CAA6218833621003603FC /* GameHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHelpViewController.m; sourceTree = "<group>"; };
 		D1ABC1A71881913600C6D60B /* CheckMate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CheckMate.framework; path = ../CheckMate.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +122,8 @@
 				7CAC45FD1880877C005361D8 /* AppDelegate.h */,
 				7CAC45FE1880877C005361D8 /* AppDelegate.m */,
 				7CAC46001880877C005361D8 /* Main.storyboard */,
+				D19CAA6118833621003603FC /* GameHelpViewController.h */,
+				D19CAA6218833621003603FC /* GameHelpViewController.m */,
 				7CAC46031880877C005361D8 /* ViewController.h */,
 				7CAC46041880877C005361D8 /* ViewController.m */,
 				7CAC46061880877C005361D8 /* Images.xcassets */,
@@ -254,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CAC46051880877C005361D8 /* ViewController.m in Sources */,
+				D19CAA6318833621003603FC /* GameHelpViewController.m in Sources */,
 				7CAC45FF1880877C005361D8 /* AppDelegate.m in Sources */,
 				7CAC45FB1880877C005361D8 /* main.m in Sources */,
 			);
